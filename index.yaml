@@ -1,9 +1,30 @@
 apiVersion: v1
 entries:
+  aws-ebs-csi-driver:
+  - apiVersion: v1
+    appVersion: 0.4.0
+    created: "2019-12-13T10:56:22.03386617+01:00"
+    description: A Helm chart for AWS EBS CSI Driver
+    digest: b50acd687e65e969932d5f08ee8d58f7c68446cd299c2132cd21fc88ace786b1
+    home: https://github.com/kubernetes-sigs/aws-ebs-csi-driver
+    keywords:
+    - aws
+    - ebs
+    - csi
+    kubeVersion: '>=1.13.0-0'
+    maintainers:
+    - email: chengpan@amazon.com
+      name: leakingtapan
+    name: aws-ebs-csi-driver
+    sources:
+    - https://github.com/kubernetes-sigs/aws-ebs-csi-driver
+    urls:
+    - aws-ebs-csi-driver-0.2.0.tgz
+    version: 0.2.0
   citrix-k8s-ingress-controller:
   - apiVersion: v1
     appVersion: 1.5.25
-    created: "2019-12-10T16:21:22.638704582+01:00"
+    created: "2019-12-13T10:56:22.034580114+01:00"
     description: A Helm chart for Citrix Ingress Controller configuring MPX/VPX
     digest: 34c463ecfc228261af5ff0bc00f5ec55cf4bf8946ad68bdae699c84c4d8a53ff
     home: https://www.citrix.com
@@ -22,7 +43,7 @@ entries:
   gitea:
   - apiVersion: v1
     appVersion: 1.9.3
-    created: "2019-12-10T16:21:22.640318908+01:00"
+    created: "2019-12-13T10:56:22.035646554+01:00"
     description: Git with a cup of tea
     digest: 2fb7ebd46a15deeca8e392ddae240401fef7697b54b244c6cc710504e991a3ea
     icon: https://docs.gitea.io/images/gitea.png
@@ -43,4 +64,4 @@ entries:
     urls:
     - gitea-1.9.3.tgz
     version: 1.9.3
-generated: "2019-12-10T16:21:22.636212178+01:00"
+generated: "2019-12-13T10:56:22.033387121+01:00"
