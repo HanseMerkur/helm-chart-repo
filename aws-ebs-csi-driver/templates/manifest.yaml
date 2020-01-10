@@ -324,7 +324,7 @@ spec:
       app.kubernetes.io/instance: {{ .Release.Name }}
   template:
     metadata:
-    r{- if .Values.podAnnotations }}
+    {{- if .Values.podAnnotations }}
       annotations:
 {{ toYaml .Values.podAnnotations | indent 8 }}
     {{- end }}
