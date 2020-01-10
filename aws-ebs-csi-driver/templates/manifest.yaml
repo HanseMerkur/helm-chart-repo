@@ -196,6 +196,10 @@ spec:
       app.kubernetes.io/instance: {{ .Release.Name }}
   template:
     metadata:
+    {{- if .Values.podAnnotations }}
+      annotations:
+{{ toYaml .Values.podAnnotations | indent 8 }}
+    {{- end }}
       labels:
         app: ebs-csi-controller
         app.kubernetes.io/name: {{ include "aws-ebs-csi-driver.name" . }}
