@@ -181,6 +181,21 @@ roleRef:
 
 ---
 
+apiVersion: policy/v1beta1
+kind: PodDisruptionBudget
+metadata:
+  name: ebs-csi-controller
+  namespace: kube-system
+spec:
+  minAvailable: {{ .Values.controller.minAvailable }}
+  selector:
+    matchLabels:
+      app: ebs-csi-controller
+      app.kubernetes.io/name: {{ include "aws-ebs-csi-driver.name" . }}
+      app.kubernetes.io/instance: {{ .Release.Name }}
+
+---
+
 kind: StatefulSet
 apiVersion: apps/v1
 metadata:
