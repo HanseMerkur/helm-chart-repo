@@ -188,7 +188,7 @@ metadata:
   namespace: kube-system
 spec:
   serviceName: ebs-csi-controller
-  replicas: 1
+  replicas: {{ .Values.controller.replicaCount }}
   selector:
     matchLabels:
       app: ebs-csi-controller
