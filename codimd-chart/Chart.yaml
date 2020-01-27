@@ -1,0 +1,21 @@
+name: codimd
+apiVersion: v1
+version: "1.5.0"
+appVersion: "1.5.0"
+description: Realtime collaborative markdown notes on all platforms.
+icon: https://codimd.org/favicon.png
+keywords:
+  - codimd
+  - cms
+  - markdown
+  - http
+  - web
+  - application
+home: https://codimd.io
+sources:
+  - https://github.com/codimd/server
+  - https://github.com/codimd/container
+maintainers:
+  - name: Lennart Weller
+    email: lennart.weller@hansemerkur.de
+engine: gotpl

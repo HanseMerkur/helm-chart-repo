@@ -1,0 +1,200 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ template "codimd.fullname" . }}
+  labels:
+    app: {{ template "codimd.name" . }}
+    chart: {{ template "codimd.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ template "codimd.name" . }}
+      release: {{ .Release.Name }}
+  strategy:
+    type: {{ .Values.deploymentStrategy }}
+  {{- if ne .Values.deploymentStrategy "RollingUpdate" }}
+    rollingUpdate: null
+  {{- end }}
+  template:
+    metadata:
+      labels:
+        app: {{ template "codimd.name" . }}
+        release: {{ .Release.Name }}
+{{- with .Values.podAnnotations }}
+      annotations:
+{{ toYaml . | indent 8 }}
+{{- end }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: 3000
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /status
+              port: 3000
+            initialDelaySeconds: 120
+          readinessProbe:
+            httpGet:
+              path: /status
+              port: 3000
+            initialDelaySeconds: 30
+          env:
+            - name: CMD_DB_HOST
+              value: {{ template "codimd.postgresql.fullname" . }}
+            - name: CMD_DB_PORT
+              value: "{{ .Values.postgresql.service.port }}"
+            - name: CMD_DB_USER
+              value: {{ .Values.postgresql.postgresqlUsername }}
+            - name: CMD_DB_DATABASE
+              value: {{ .Values.postgresql.postgresqlDatabase }}
+            - name: CMD_DB_PASSWORD
+              {{- if .Values.postgresql.enabled }}
+              valueFrom:
+                secretKeyRef:
+                  name: {{ template "codimd.postgresql.fullname" . }}
+                  key: postgresql-password
+              {{- else }}
+              value: {{ .Values.postgresql.postgresqlPassword }}
+              {{- end }}
+            - name: CMD_SESSION_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: {{ template "codimd.fullname" . }}
+                  key: sessionSecret
+            - name: CMD_DB_URL
+              value: "postgres://$(CMD_DB_USER):$(CMD_DB_PASSWORD)@$(CMD_DB_HOST):$(CMD_DB_PORT)/$(CMD_DB_DATABASE)"
+            {{- with .Values.extraVars }}
+{{ toYaml . | indent 12 }}
+            {{- end }}
+            # Basic configuration values
+            {{- $root := . }}
+            {{- range $key, $value := .Values.codimd }}
+            - name: CMD_{{ $key | upper }}
+              value: "{{ $value }}"
+            {{- end }}
+            # Auth configuration
+            {{- range $key, $value := .Values.auth }}
+              {{- if and ($value.enabled) (ne $key "openid") }}
+                {{- range $k, $v := $value }}
+                  {{- if ne $k "enabled" }}
+                    {{- if and (eq $key "oauth2") (contains "secret" $k) }}
+            - name: CMD_{{ $key | upper }}_{{ $k | upper }}
+              valueFrom:
+                secretKeyRef:
+                  name: {{ template "codimd.fullname" $root }}
+                  key: {{ $key }}Secret
+                    {{- else }}
+            - name: CMD_{{ $key | upper }}_{{ $k | upper }}
+              value: "{{ $v }}"
+                    {{- end }}
+                  {{- end }}
+                {{- end }}
+              {{- else if and ($value.enabled) (eq $key "openid") }}
+                {{- range $k, $v := $value }}
+                  {{- if ne $k "enabled" }}
+                    {{- range $i, $j := $v }}
+                      {{- if contains "secret" $i }}
+            - name: CMD_{{ $k | upper }}_{{ $i | upper }}
+              valueFrom:
+                secretKeyRef:
+                  name: {{ template "codimd.fullname" $root }}
+                  key: {{ $k }}Secret
+                      {{- else }}
+            - name: CMD_{{ $k | upper }}_{{ $i | upper }}
+              value: "{{ $j }}"
+                      {{- end }}
+                    {{- end }}
+                  {{- end }}
+                {{- end }}
+              {{- end }}
+            {{- end }}
+            # Storage configuration
+            {{- range $key, $value := .Values.storage }}
+              {{- if and ($value.enabled) (eq $key "s3") }}
+            - name: CMD_S3_REGION
+              value: "{{ $value.region }}"
+            - name: CMD_S3_BUCKET
+              value: "{{ $value.bucket }}"
+                {{- if $value.amazon.enabled }}
+            - name: CMD_IMAGE_UPLOAD_TYPE
+              value: s3
+            - name: CMD_S3_ACCESS_KEY_ID
+              value: "{{ $value.amazon.access_key_id }}"
+            - name: CMD_S3_SECRET_ACCESS_KEY
+              value: "{{ $value.amazon.secret_access_key }}"
+              valueFrom:
+                secretKeyRef:
+                  name: {{ template "codimd.fullname" $root }}
+                  key: amazonSecret
+                {{- else if $value.minio.enabled }}
+            - name: CMD_IMAGE_UPLOAD_TYPE
+              value: minio
+                  {{- range $k, $v := $value.minio }}
+                    {{- if ne $k "enabled" }}
+                      {{- if contains "secret" $k }}
+            - name: CMD_MINIO_{{ $k | upper }}
+              valueFrom:
+                secretKeyRef:
+                  name: {{ template "codimd.fullname" $root }}
+                  key: minioSecret
+                      {{- else }}
+            - name: CMD_MINIO_{{ $k | upper }}
+              value: "{{ $v }}"
+                      {{- end }}
+                    {{- end }}
+                  {{- end }}
+                {{- end }}
+              {{- else if and ($value.enabled) (ne $key "s3") }}
+            - name: CMD_IMAGE_UPLOAD_TYPE
+              value: {{ $key }}
+                {{- range $k, $v := $value }}
+                  {{- if ne $k "enabled" }}
+            - name: CMD_{{ $key | upper }}_{{ $k | upper }}
+              value: "{{ $v }}"
+                  {{- end }}
+                {{- end }}
+              {{- end }}
+            {{- end }}
+          volumeMounts:
+            - name: data
+              mountPath: "/codimd/public/uploads"
+      {{- with .Values.extraVolumeMounts }}
+{{ tpl . $ | indent 12 }}
+      {{- end }}
+          resources:
+{{ toYaml .Values.resources | indent 12 }}
+    {{- with .Values.securityContext }}
+      securityContext:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.nodeSelector }}
+      nodeSelector:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.affinity }}
+      affinity:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.tolerations }}
+      tolerations:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+      volumes:
+        - name: data
+        {{- if .Values.persistence.enabled }}
+          persistentVolumeClaim:
+            claimName: {{ if .Values.persistence.existingClaim }}{{ .Values.persistence.existingClaim }}{{- else }}{{ template "codimd.fullname" . }}{{- end }}
+        {{- else }}
+          emptyDir: {}
+        {{- end }}
+    {{- with .Values.extraVolumes }}
+{{ tpl . $ | indent 8 }}
+    {{- end }}

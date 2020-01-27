@@ -3,7 +3,7 @@ entries:
   aws-ebs-csi-driver:
   - apiVersion: v1
     appVersion: 0.4.0
-    created: "2020-01-14T14:15:15.175433096+01:00"
+    created: "2020-01-27T09:05:44.630895967+01:00"
     description: A Helm chart for AWS EBS CSI Driver
     digest: bed015b46854c0fcfb7af2d73c8b89442401c17d6ab1a2ce7995ddff46779b8f
     home: https://github.com/kubernetes-sigs/aws-ebs-csi-driver
@@ -24,7 +24,7 @@ entries:
   citrix-k8s-ingress-controller:
   - apiVersion: v1
     appVersion: 1.6.1
-    created: "2020-01-14T14:15:15.176832927+01:00"
+    created: "2020-01-27T09:05:44.633597683+01:00"
     description: A Helm chart for Citrix Ingress Controller configuring MPX/VPX
     digest: c9317a24bdd66c22da75f837a1d1811e2ef294f5633cdffd039da778889ee278
     home: https://www.citrix.com
@@ -42,7 +42,7 @@ entries:
     version: 1.6.1
   - apiVersion: v1
     appVersion: 1.5.25
-    created: "2020-01-14T14:15:15.176120757+01:00"
+    created: "2020-01-27T09:05:44.632606135+01:00"
     description: A Helm chart for Citrix Ingress Controller configuring MPX/VPX
     digest: 34c463ecfc228261af5ff0bc00f5ec55cf4bf8946ad68bdae699c84c4d8a53ff
     home: https://www.citrix.com
@@ -58,10 +58,40 @@ entries:
     urls:
     - citrix-k8s-ingress-controller-1.5.25.tgz
     version: 1.5.25
+  codimd:
+  - apiVersion: v1
+    appVersion: 1.5.0
+    created: "2020-01-27T09:05:44.636459794+01:00"
+    dependencies:
+    - condition: postgresql.install
+      name: postgresql
+      repository: https://kubernetes-charts.storage.googleapis.com/
+      version: 8.1.4
+    description: Realtime collaborative markdown notes on all platforms.
+    digest: 5f32a9273535fcfe5f0d9fee2364abb85b9bc82a3f1e019b1afc48ddf7ef611c
+    home: https://codimd.io
+    icon: https://codimd.org/favicon.png
+    keywords:
+    - codimd
+    - cms
+    - markdown
+    - http
+    - web
+    - application
+    maintainers:
+    - email: lennart.weller@hansemerkur.de
+      name: Lennart Weller
+    name: codimd
+    sources:
+    - https://github.com/codimd/server
+    - https://github.com/codimd/container
+    urls:
+    - codimd-1.5.0.tgz
+    version: 1.5.0
   gitea:
   - apiVersion: v1
     appVersion: 1.9.3
-    created: "2020-01-14T14:15:15.178094258+01:00"
+    created: "2020-01-27T09:05:44.637812942+01:00"
     description: Git with a cup of tea
     digest: 2fb7ebd46a15deeca8e392ddae240401fef7697b54b244c6cc710504e991a3ea
     icon: https://docs.gitea.io/images/gitea.png
@@ -82,4 +112,4 @@ entries:
     urls:
     - gitea-1.9.3.tgz
     version: 1.9.3
-generated: "2020-01-14T14:15:15.174946179+01:00"
+generated: "2020-01-27T09:05:44.628971985+01:00"
