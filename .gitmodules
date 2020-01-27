@@ -1,3 +1,6 @@
 [submodule "gitea-helm-chart"]
 	path = gitea-helm-chart
 	url = https://github.com/jfelten/gitea-helm-chart.git
+[submodule "codimd-chart"]
+	path = codimd-chart
+	url = https://github.com/HanseMerkur/codimd-chart
