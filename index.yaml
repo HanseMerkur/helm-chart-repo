@@ -3,7 +3,7 @@ entries:
   aws-ebs-csi-driver:
   - apiVersion: v1
     appVersion: 0.4.0
-    created: "2020-01-27T10:51:45.337298383+01:00"
+    created: 2020-02-10T09:29:22.51551396+01:00
     description: A Helm chart for AWS EBS CSI Driver
     digest: bed015b46854c0fcfb7af2d73c8b89442401c17d6ab1a2ce7995ddff46779b8f
     home: https://github.com/kubernetes-sigs/aws-ebs-csi-driver
@@ -24,7 +24,7 @@ entries:
   citrix-k8s-ingress-controller:
   - apiVersion: v1
     appVersion: 1.6.1
-    created: "2020-01-27T10:51:45.339117439+01:00"
+    created: 2020-02-10T09:29:22.521210176+01:00
     description: A Helm chart for Citrix Ingress Controller configuring MPX/VPX
     digest: c9317a24bdd66c22da75f837a1d1811e2ef294f5633cdffd039da778889ee278
     home: https://www.citrix.com
@@ -42,7 +42,7 @@ entries:
     version: 1.6.1
   - apiVersion: v1
     appVersion: 1.5.25
-    created: "2020-01-27T10:51:45.338291693+01:00"
+    created: 2020-02-10T09:29:22.518623727+01:00
     description: A Helm chart for Citrix Ingress Controller configuring MPX/VPX
     digest: 34c463ecfc228261af5ff0bc00f5ec55cf4bf8946ad68bdae699c84c4d8a53ff
     home: https://www.citrix.com
@@ -61,12 +61,7 @@ entries:
   codimd:
   - apiVersion: v1
     appVersion: 1.5.0
-    created: "2020-01-27T10:51:45.34650585+01:00"
-    dependencies:
-    - condition: postgresql.install
-      name: postgresql
-      repository: https://kubernetes-charts.storage.googleapis.com/
-      version: 8.1.4
+    created: 2020-02-10T09:29:22.527473123+01:00
     description: Realtime collaborative markdown notes on all platforms.
     digest: 09bb1d8af0862bdbb327166754fa97d8c043179098a860f41c54daf49d648ce3
     home: https://codimd.io
@@ -88,39 +83,10 @@ entries:
     urls:
     - codimd-1.5.4.tgz
     version: 1.5.4
-  - apiVersion: v1
-    appVersion: 1.5.0
-    created: "2020-01-27T10:51:45.342463688+01:00"
-    dependencies:
-    - condition: postgresql.install
-      name: postgresql
-      repository: https://kubernetes-charts.storage.googleapis.com/
-      version: 8.1.4
-    description: Realtime collaborative markdown notes on all platforms.
-    digest: ddd79d5067a5f4d9316011ecb2ab453251ef62746a17c4b459e5ef9f602bf666
-    home: https://codimd.io
-    icon: https://codimd.org/favicon.png
-    keywords:
-    - codimd
-    - cms
-    - markdown
-    - http
-    - web
-    - application
-    maintainers:
-    - email: lennart.weller@hansemerkur.de
-      name: Lennart Weller
-    name: codimd
-    sources:
-    - https://github.com/codimd/server
-    - https://github.com/codimd/container
-    urls:
-    - codimd-1.5.3.tgz
-    version: 1.5.3
   gitea:
   - apiVersion: v1
     appVersion: 1.9.3
-    created: "2020-01-27T10:51:45.347564094+01:00"
+    created: 2020-02-10T09:29:22.531013493+01:00
     description: Git with a cup of tea
     digest: 2fb7ebd46a15deeca8e392ddae240401fef7697b54b244c6cc710504e991a3ea
     icon: https://docs.gitea.io/images/gitea.png
@@ -141,4 +107,23 @@ entries:
     urls:
     - gitea-1.9.3.tgz
     version: 1.9.3
-generated: "2020-01-27T10:51:45.336624653+01:00"
+  gitlab:
+  - apiVersion: v1
+    appVersion: 12.7.5
+    created: 2020-02-10T09:29:22.596433575+01:00
+    description: Web-based Git-repository manager with wiki and issue-tracking features.
+    digest: 6fc394d668c3a0d62ed43dea9afddf34a96d0f9aa9433a5693bd838ea44cdedb
+    home: https://about.gitlab.com/
+    icon: https://gitlab.com/gitlab-com/gitlab-artwork/raw/master/logo/logo-square.png
+    keywords:
+    - gitlab
+    maintainers:
+    - email: support@gitlab.com
+      name: GitLab Inc.
+    name: gitlab
+    sources:
+    - https://gitlab.com/gitlab-org/charts/gitlab
+    urls:
+    - gitlab-3.0.3.tgz
+    version: 3.0.3
+generated: 2020-02-10T09:29:22.513897843+01:00
