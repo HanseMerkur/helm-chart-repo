@@ -4,6 +4,3 @@
 [submodule "codimd-chart"]
 	path = codimd-chart
 	url = https://github.com/HanseMerkur/codimd-chart
-[submodule "gitlab"]
-	path = gitlab
-	url = https://gitlab.com/gitlab-org/charts/gitlab.git
