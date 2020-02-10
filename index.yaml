@@ -3,7 +3,7 @@ entries:
   aws-ebs-csi-driver:
   - apiVersion: v1
     appVersion: 0.4.0
-    created: 2020-02-10T09:29:22.51551396+01:00
+    created: 2020-02-10T09:42:37.241483329+01:00
     description: A Helm chart for AWS EBS CSI Driver
     digest: bed015b46854c0fcfb7af2d73c8b89442401c17d6ab1a2ce7995ddff46779b8f
     home: https://github.com/kubernetes-sigs/aws-ebs-csi-driver
@@ -24,7 +24,7 @@ entries:
   citrix-k8s-ingress-controller:
   - apiVersion: v1
     appVersion: 1.6.1
-    created: 2020-02-10T09:29:22.521210176+01:00
+    created: 2020-02-10T09:42:37.243909949+01:00
     description: A Helm chart for Citrix Ingress Controller configuring MPX/VPX
     digest: c9317a24bdd66c22da75f837a1d1811e2ef294f5633cdffd039da778889ee278
     home: https://www.citrix.com
@@ -42,7 +42,7 @@ entries:
     version: 1.6.1
   - apiVersion: v1
     appVersion: 1.5.25
-    created: 2020-02-10T09:29:22.518623727+01:00
+    created: 2020-02-10T09:42:37.242799949+01:00
     description: A Helm chart for Citrix Ingress Controller configuring MPX/VPX
     digest: 34c463ecfc228261af5ff0bc00f5ec55cf4bf8946ad68bdae699c84c4d8a53ff
     home: https://www.citrix.com
@@ -61,7 +61,7 @@ entries:
   codimd:
   - apiVersion: v1
     appVersion: 1.5.0
-    created: 2020-02-10T09:29:22.527473123+01:00
+    created: 2020-02-10T09:42:37.246591165+01:00
     description: Realtime collaborative markdown notes on all platforms.
     digest: 09bb1d8af0862bdbb327166754fa97d8c043179098a860f41c54daf49d648ce3
     home: https://codimd.io
@@ -86,7 +86,7 @@ entries:
   gitea:
   - apiVersion: v1
     appVersion: 1.9.3
-    created: 2020-02-10T09:29:22.531013493+01:00
+    created: 2020-02-10T09:42:37.248161069+01:00
     description: Git with a cup of tea
     digest: 2fb7ebd46a15deeca8e392ddae240401fef7697b54b244c6cc710504e991a3ea
     icon: https://docs.gitea.io/images/gitea.png
@@ -110,9 +110,9 @@ entries:
   gitlab:
   - apiVersion: v1
     appVersion: 12.7.5
-    created: 2020-02-10T09:29:22.596433575+01:00
+    created: 2020-02-10T09:42:37.279889842+01:00
     description: Web-based Git-repository manager with wiki and issue-tracking features.
-    digest: 6fc394d668c3a0d62ed43dea9afddf34a96d0f9aa9433a5693bd838ea44cdedb
+    digest: fa822ca575af5d355f60acd9ad1fa90f0b11864e2d56cb63c1b405f30f6182c5
     home: https://about.gitlab.com/
     icon: https://gitlab.com/gitlab-com/gitlab-artwork/raw/master/logo/logo-square.png
     keywords:
@@ -126,4 +126,4 @@ entries:
     urls:
     - gitlab-3.0.3.tgz
     version: 3.0.3
-generated: 2020-02-10T09:29:22.513897843+01:00
+generated: 2020-02-10T09:42:37.240651058+01:00
