@@ -1,0 +1,5 @@
+config.yaml
+charts/*.tgz
+Gemfile.lock
+.DS_Store
+tags
