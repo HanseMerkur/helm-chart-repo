@@ -31,6 +31,9 @@ ingressClass:
 defaultSSLCert:
 #nodeWatch is used for automatic route configuration on NetScaler towards the pod network
 nodeWatch: false
+# citrix ipam controller if installed
+citrixIpamController:
+
 # exporter conatins information of prometheus-exporter
 exporter:
   required: false

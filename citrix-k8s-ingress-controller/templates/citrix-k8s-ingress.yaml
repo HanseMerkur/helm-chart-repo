@@ -53,6 +53,10 @@ spec:
 {{- end }}
           - --feature-node-watch
             {{.Values.nodeWatch}}
+{{- if .Values.citrixIpamController }}
+          - --ipam
+            {{.Values.citrixIpamController}}
+{{- end }}
         env:
         - name: "NS_IP"
           value: "{{ .Values.nsIP }}"
