@@ -4,7 +4,7 @@
 
 # image contains information needed to fetch CIC image
 cic:
-  image: quay.io/citrix/citrix-k8s-ingress-controller:1.6.1
+  image: quay.io/citrix/citrix-k8s-ingress-controller:1.7.6
   pullPolicy: Always
 # openshift is set to true if charts are being deployed in OpenShift environment.
 openshift: false
@@ -20,10 +20,10 @@ license:
 nsPort: 443
 # nsProtocol is protocol for NetScaler NITRO
 nsProtocol: HTTPS
-# nsNamespace is the prefix for the resources on the NetScaler
-nsNamespace:
 # logLevel is to set level of CIC Logs
 logLevel: DEBUG
+# nsNamespace is the prefix for the resources on the Citrix ADC
+nsNamespace:
 # kubernetesURL is for registering events to kubeapi server
 kubernetesURL:
 # ingressClass is the name of the Ingress Class
