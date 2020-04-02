@@ -13,6 +13,7 @@ loginFileName:
 # nsIP is NetScaler NSIP/SNIP, SNIP in case of HA (mgmt has to be enabled)
 nsIP: x.x.x.x
 nsVIP:
+asNumber: 64512
 # license accept should be 'yes' to run Citrix Ingress Controller
 license:
    accept: no
@@ -32,12 +33,15 @@ defaultSSLCert:
 #nodeWatch is used for automatic route configuration on NetScaler towards the pod network
 nodeWatch: false
 # citrix ipam controller if installed
-citrixIpamController:
+ipamController:
+  enabled: false
+  range: 10.0.0.0/16
+  namespaces:
 
 # exporter conatins information of prometheus-exporter
 exporter:
   required: false
-  image: quay.io/citrix/citrix-adc-metrics-exporter:1.4.0
+  image: quay.io/citrix/citrix-adc-metrics-exporter:1.4.1
   pullPolicy: Always
   ports:
        containerPort: 8888
