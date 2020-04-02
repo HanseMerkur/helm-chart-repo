@@ -1,0 +1,15 @@
+---
+apiVersion: v1
+appVersion: v2.0.1
+description: "Container Storage Interface (CSI) driver,
+provisioner, snapshotter, and attacher for Ceph RBD"
+name: ceph-csi-rbd
+version: 2.0.1
+keywords:
+  - ceph
+  - rbd
+  - ceph-csi
+home: https://github.com/ceph/ceph-csi
+sources:
+  - https://github.com/ceph/ceph-csi/tree/master/charts/ceph-csi-rbd
+icon: https://raw.githubusercontent.com/ceph/ceph-csi/master/assets/ceph-logo.png
