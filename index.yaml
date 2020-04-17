@@ -3,7 +3,7 @@ entries:
   aws-ebs-csi-driver:
   - apiVersion: v1
     appVersion: 0.5.0
-    created: "2020-04-02T17:45:51.041085161+02:00"
+    created: "2020-04-17T15:46:20.103399711+02:00"
     description: A Helm chart for AWS EBS CSI Driver
     digest: edbf2e0c525ac303221dc7c37a1ec653eeee4355cb51036161ef8113ffc7e3a4
     home: https://github.com/kubernetes-sigs/aws-ebs-csi-driver
@@ -23,7 +23,7 @@ entries:
     version: 0.3.0
   - apiVersion: v1
     appVersion: 0.4.0
-    created: "2020-04-02T17:45:51.038174348+02:00"
+    created: "2020-04-17T15:46:20.102825618+02:00"
     description: A Helm chart for AWS EBS CSI Driver
     digest: bed015b46854c0fcfb7af2d73c8b89442401c17d6ab1a2ce7995ddff46779b8f
     home: https://github.com/kubernetes-sigs/aws-ebs-csi-driver
@@ -44,7 +44,7 @@ entries:
   ceph-csi-rbd:
   - apiVersion: v1
     appVersion: v2.0.1
-    created: "2020-04-02T17:45:51.043108809+02:00"
+    created: "2020-04-17T15:46:20.104487042+02:00"
     description: Container Storage Interface (CSI) driver, provisioner, snapshotter,
       and attacher for Ceph RBD
     digest: 94c898e9d8c531deb2ded427c230a7e7d14a39fd85e853ffb161f46e9a155574
@@ -63,7 +63,7 @@ entries:
   citrix-k8s-ingress-controller:
   - apiVersion: v1
     appVersion: 1.7.6
-    created: "2020-04-02T17:45:51.049604693+02:00"
+    created: "2020-04-17T15:46:20.107683717+02:00"
     description: A Helm chart for Citrix Ingress Controller configuring MPX/VPX
     digest: f824df0ac2ab20f957ab1c1efe804172e2e21c37088cc37f918ea015c3b4ae4e
     home: https://www.citrix.com
@@ -81,7 +81,7 @@ entries:
     version: 1.7.6
   - apiVersion: v1
     appVersion: 1.6.1
-    created: "2020-04-02T17:45:51.047735195+02:00"
+    created: "2020-04-17T15:46:20.106070263+02:00"
     description: A Helm chart for Citrix Ingress Controller configuring MPX/VPX
     digest: c9317a24bdd66c22da75f837a1d1811e2ef294f5633cdffd039da778889ee278
     home: https://www.citrix.com
@@ -99,7 +99,7 @@ entries:
     version: 1.6.1
   - apiVersion: v1
     appVersion: 1.5.25
-    created: "2020-04-02T17:45:51.045797163+02:00"
+    created: "2020-04-17T15:46:20.105287953+02:00"
     description: A Helm chart for Citrix Ingress Controller configuring MPX/VPX
     digest: 34c463ecfc228261af5ff0bc00f5ec55cf4bf8946ad68bdae699c84c4d8a53ff
     home: https://www.citrix.com
@@ -118,14 +118,14 @@ entries:
   codimd:
   - apiVersion: v1
     appVersion: 1.5.0
-    created: "2020-04-02T17:45:51.056879884+02:00"
+    created: "2020-04-17T15:46:20.110624772+02:00"
     dependencies:
     - condition: postgresql.install
       name: postgresql
-      repository: https://kubernetes-charts.storage.googleapis.com/
-      version: 8.1.4
+      repository: https://charts.bitnami.com/bitnami
+      version: 8.8.0
     description: Realtime collaborative markdown notes on all platforms.
-    digest: 09bb1d8af0862bdbb327166754fa97d8c043179098a860f41c54daf49d648ce3
+    digest: 8d27b4e918f62d2710209f33a5b2316d588b829157bdf0b1d83393b815f8a82e
     home: https://codimd.io
     icon: https://codimd.org/favicon.png
     keywords:
@@ -148,7 +148,7 @@ entries:
   gitlab:
   - apiVersion: v1
     appVersion: 12.7.5
-    created: "2020-04-02T17:45:51.132615393+02:00"
+    created: "2020-04-17T15:46:20.144843681+02:00"
     dependencies:
     - alias: certmanager
       condition: certmanager.install
@@ -190,4 +190,4 @@ entries:
     urls:
     - gitlab-3.0.3.tgz
     version: 3.0.3
-generated: "2020-04-02T17:45:51.029270891+02:00"
+generated: "2020-04-17T15:46:20.102276219+02:00"
