@@ -1,4 +1,4 @@
-{{- if .Values.ipamController.enabled }}
+{{- if .Values.ipam }}
 ---
 apiVersion: v1
 kind: ServiceAccount
