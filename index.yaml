@@ -3,7 +3,7 @@ entries:
   aws-ebs-csi-driver:
   - apiVersion: v1
     appVersion: 0.5.0
-    created: "2020-04-30T15:22:13.566629987+02:00"
+    created: "2020-05-13T09:58:43.577932788+02:00"
     description: A Helm chart for AWS EBS CSI Driver
     digest: edbf2e0c525ac303221dc7c37a1ec653eeee4355cb51036161ef8113ffc7e3a4
     home: https://github.com/kubernetes-sigs/aws-ebs-csi-driver
@@ -23,7 +23,7 @@ entries:
     version: 0.3.0
   - apiVersion: v1
     appVersion: 0.4.0
-    created: "2020-04-30T15:22:13.566111718+02:00"
+    created: "2020-05-13T09:58:43.577081832+02:00"
     description: A Helm chart for AWS EBS CSI Driver
     digest: bed015b46854c0fcfb7af2d73c8b89442401c17d6ab1a2ce7995ddff46779b8f
     home: https://github.com/kubernetes-sigs/aws-ebs-csi-driver
@@ -44,7 +44,7 @@ entries:
   ceph-csi-rbd:
   - apiVersion: v1
     appVersion: v2.0.1
-    created: "2020-04-30T15:22:13.567624498+02:00"
+    created: "2020-05-13T09:58:43.579107354+02:00"
     description: Container Storage Interface (CSI) driver, provisioner, snapshotter,
       and attacher for Ceph RBD
     digest: 94c898e9d8c531deb2ded427c230a7e7d14a39fd85e853ffb161f46e9a155574
@@ -63,7 +63,7 @@ entries:
   citrix-k8s-ingress-controller:
   - apiVersion: v1
     appVersion: 1.7.6
-    created: "2020-04-30T15:22:13.569994131+02:00"
+    created: "2020-05-13T09:58:43.587615548+02:00"
     description: A Helm chart for Citrix Ingress Controller configuring MPX/VPX
     digest: b9fa7261139f119c7a16f67546bbac5482cd4c289698a9f073ba28d3152d5d0d
     home: https://www.citrix.com
@@ -80,8 +80,26 @@ entries:
     - citrix-k8s-ingress-controller-1.7.6.tgz
     version: 1.7.6
   - apiVersion: v1
+    appVersion: 1.7.6
+    created: "2020-05-13T09:58:43.586504601+02:00"
+    description: A Helm chart for Citrix Ingress Controller configuring MPX/VPX
+    digest: bf6f90cdf77744a6eef57092e397beb54f751e6e76a88ef6f8da3d18e47db971
+    home: https://www.citrix.com
+    icon: https://raw.githubusercontent.com/citrix/citrix-helm-charts/gh-pages/icon.png
+    maintainers:
+    - email: priyanka.sharma@citrix.com
+      name: Priyanka Sharma
+    - email: subash.dangol@citrix.com
+      name: Subash Dangal
+    name: citrix-k8s-ingress-controller
+    sources:
+    - https://github.com/citrix/citrix-k8s-ingress-controller
+    urls:
+    - citrix-k8s-ingress-controller-1.7.6-hm.tgz
+    version: 1.7.6-hm
+  - apiVersion: v1
     appVersion: 1.6.1
-    created: "2020-04-30T15:22:13.569125745+02:00"
+    created: "2020-05-13T09:58:43.581331054+02:00"
     description: A Helm chart for Citrix Ingress Controller configuring MPX/VPX
     digest: c9317a24bdd66c22da75f837a1d1811e2ef294f5633cdffd039da778889ee278
     home: https://www.citrix.com
@@ -99,7 +117,7 @@ entries:
     version: 1.6.1
   - apiVersion: v1
     appVersion: 1.5.25
-    created: "2020-04-30T15:22:13.568384061+02:00"
+    created: "2020-05-13T09:58:43.580364075+02:00"
     description: A Helm chart for Citrix Ingress Controller configuring MPX/VPX
     digest: 34c463ecfc228261af5ff0bc00f5ec55cf4bf8946ad68bdae699c84c4d8a53ff
     home: https://www.citrix.com
@@ -118,7 +136,7 @@ entries:
   codimd:
   - apiVersion: v1
     appVersion: 1.6.0
-    created: "2020-04-30T15:22:13.579294084+02:00"
+    created: "2020-05-13T09:58:43.598054355+02:00"
     dependencies:
     - condition: postgresql.install
       name: postgresql
@@ -146,7 +164,7 @@ entries:
     version: 1.5.6
   - apiVersion: v1
     appVersion: 1.6.0
-    created: "2020-04-30T15:22:13.576508564+02:00"
+    created: "2020-05-13T09:58:43.593992488+02:00"
     dependencies:
     - condition: postgresql.install
       name: postgresql
@@ -174,7 +192,7 @@ entries:
     version: 1.5.5
   - apiVersion: v1
     appVersion: 1.5.0
-    created: "2020-04-30T15:22:13.57315841+02:00"
+    created: "2020-05-13T09:58:43.590778948+02:00"
     dependencies:
     - condition: postgresql.install
       name: postgresql
@@ -204,7 +222,7 @@ entries:
   gitlab:
   - apiVersion: v1
     appVersion: 12.7.5
-    created: "2020-04-30T15:22:13.611647087+02:00"
+    created: "2020-05-13T09:58:43.634375456+02:00"
     dependencies:
     - alias: certmanager
       condition: certmanager.install
@@ -249,7 +267,7 @@ entries:
   nipio:
   - apiVersion: v2
     appVersion: 0.1.0
-    created: "2020-04-30T15:22:13.612017202+02:00"
+    created: "2020-05-13T09:58:43.634907328+02:00"
     description: Dead simple wildcard DNS for any IP Address
     digest: eb5fc8661611df873a4be970113d7404d6cc0417ec017b811e2a1b638490a08a
     name: nipio
@@ -257,4 +275,4 @@ entries:
     urls:
     - nipio-0.1.0.tgz
     version: 0.1.0
-generated: "2020-04-30T15:22:13.565588626+02:00"
+generated: "2020-05-13T09:58:43.576413914+02:00"
