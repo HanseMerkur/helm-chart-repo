@@ -5,7 +5,7 @@ metadata:
 rules:
   - apiGroups: [""]
 {{- if .Values.openshift }}
-    resources: ["endpoints", "ingresses", "pods", "secrets", "routes", "routes/status", "tokenreviews", "subjectaccessreviews", "nodes", "namespaces"]
+    resources: ["endpoints", "ingresses", "pods", "secrets", "routes", "routes/status", "tokenreviews", "subjectaccessreviews", "nodes", "namespaces", "configmaps"]
 {{- else }}
     resources: ["endpoints", "ingresses", "pods", "secrets", "routes", "routes/status", "nodes", "namespaces"]
 {{- end}}
@@ -25,13 +25,13 @@ rules:
     resources: ["customresourcedefinitions"]
     verbs: ["get", "list", "watch"]
   - apiGroups: ["apps"]
-    resources: ["deployments", "deployments/status"]
-    verbs: ["get", "list", "watch", "patch"]
-  - apiGroups: ["citrix.com"]
-    resources: ["rewritepolicies", "canarycrds", "authpolicies", "ratelimits"]
+    resources: ["deployments"]
     verbs: ["get", "list", "watch"]
   - apiGroups: ["citrix.com"]
-    resources: ["rewritepolicies/status", "canarycrds/status", "authpolicies/status", "ratelimits/status"]
+    resources: ["rewritepolicies", "canarycrds", "authpolicies", "ratelimits", "listeners", "httproutes"]
+    verbs: ["get", "list", "watch"]
+  - apiGroups: ["citrix.com"]
+    resources: ["rewritepolicies/status", "canarycrds/status", "authpolicies/status", "ratelimits/status", "listeners/status", "httproutes/status"]
     verbs: ["get", "list", "patch"]
   - apiGroups: ["citrix.com"]
     resources: ["vips"]

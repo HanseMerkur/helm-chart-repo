@@ -3,9 +3,8 @@
 # Declare variables to be passed into your templates.
 
 # image contains information needed to fetch CIC image
-cic:
-  image: quay.io/citrix/citrix-k8s-ingress-controller:1.7.6
-  pullPolicy: Always
+image: quay.io/citrix/citrix-k8s-ingress-controller:1.7.46
+pullPolicy: Always
 # openshift is set to true if charts are being deployed in OpenShift environment.
 openshift: false
 #loginFileName is secret file for NetScaler login
@@ -29,19 +28,29 @@ nsNamespace:
 kubernetesURL:
 # ingressClass is the name of the Ingress Class
 ingressClass:
+# Default SSL certificate
 defaultSSLCert:
-#nodeWatch is used for automatic route configuration on NetScaler towards the pod network
-nodeWatch: false
-# citrix ipam controller if installed
-ipam: false
+# Set this argument if you want to use the IPAM controller
+ipam: False
 ipamController:
   ranges:
     - 10.0.0.0/16
   namespaces:
+# Elasticsearch or Kafka or Zipkin endpoint for Citrix observability exporter
+logProxy:
+#nodeWatch is used for automatic route configuration on NetScaler towards the pod network
+nodeWatch: false
+# Set to ON to enables HTTP2 for Citrix ADC service group configurations
+http2ServerSide: OFF
 # exporter conatins information of prometheus-exporter
 exporter:
   required: false
-  image: quay.io/citrix/citrix-adc-metrics-exporter:1.4.1
+  image: quay.io/citrix/citrix-adc-metrics-exporter:1.4.2
   pullPolicy: Always
   ports:
        containerPort: 8888
+crds:
+# If false, CustomResourceDefinitions  will not be installed.
+  install: true
+# if set to true, then CustomResourceDefinitions will not be deleted during helm delete. This way, CustomResourceObjects will not be deleted from the database.
+  retainOnDelete: false
