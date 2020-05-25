@@ -1,0 +1,19 @@
+{{- if .Values.storage.enabled -}}
+{{- $fullName := include "bitwarden.fullname" . -}}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ $fullName }}-pv
+  labels:
+    app.kubernetes.io/name: {{ include "bitwarden.name" . }}
+    helm.sh/chart: {{ include "bitwarden.chart" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: {{ .Values.storage.size }}
+status: {}
+{{- end }}

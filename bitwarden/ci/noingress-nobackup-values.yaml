@@ -1,0 +1,4 @@
+ingress:
+  enabled: false
+backup:
+  enabled: false

@@ -1,0 +1,158 @@
+# Override all names
+nameOverride: ""
+fullnameOverride: ""
+
+# Bitwarden configuration.
+# The below values are used to construct a config map, which will be provided
+# to the bitwarden_rs container on start up.
+# For details about the options, see: https://github.com/dani-garcia/bitwarden_rs#configuring-bitwarden-service
+#
+# Besides the options listed below, Rocket can be further configured (though it shouldn't be required).
+# See: https://github.com/dani-garcia/bitwarden_rs#other-configuration
+bitwarden:
+  # # Allow registration of new users
+  # # See: https://github.com/dani-garcia/bitwarden_rs#disable-registration-of-new-users
+  # signups_allowed: true
+
+  # # Allow current users invite new users even if registrations are otherwise disabled.
+  # # See: https://github.com/dani-garcia/bitwarden_rs#disable-invitations
+  # invitations_allowed: true
+
+  # # Email of the unique server administrator account
+  # # See: https://github.com/dani-garcia/bitwarden_rs#configure-server-administrator
+  # server_admin_email: admin@example.com
+
+  # # Websocket support for notifications
+  # # See: https://github.com/dani-garcia/bitwarden_rs#enabling-websocket-notifications
+  # # TODO: Not supported currently: Needs to be added to the ingress controller
+  # websocket_enabled: false
+
+  # # Needed for U2F authentification
+  # # See: https://github.com/dani-garcia/bitwarden_rs#enabling-u2f-authentication
+  # # TODO: Not supported currently
+  # # TODO: Automatically template this into the ingress configuration
+  # domain: https://bw.domain.tld
+
+  # # Configuration of YubiKey OTP
+  # # See: https://github.com/dani-garcia/bitwarden_rs#enabling-yubikey-otp-authentication
+  # yubico_client_id: YUBICO_CLIENT_ID
+  # yubico_secret_key: YUBICO_SECRET_KEY
+
+  # # API request size limits
+  # # See: https://github.com/dani-garcia/bitwarden_rs#changing-the-api-request-size-limit
+  # rocket_limits: "{json=10485760}"
+
+  # # Number of workers to spin up for the service
+  # # See: https://github.com/dani-garcia/bitwarden_rs#changing-the-number-of-workers
+  # rocket_workers: 10
+
+  # # SMTP settings, for sending out emails
+  # # See: https://github.com/dani-garcia/bitwarden_rs/blob/master/README.md#smtp-configuration
+  # smtp_host: smtp.domain.tld
+  # smtp_from: bitwarden@domain.tld
+  # smtp_port: 587
+  # smtp_ssl: true
+  # smtp_username: username
+  # smtp_password: password
+
+  # Show password hint instead of sending it via email
+  # See: https://github.com/dani-garcia/bitwarden_rs#password-hint-display
+  show_password_hints: false
+
+  # Enable Vault interface, when disabled, only API is served
+  # See: https://github.com/dani-garcia/bitwarden_rs#disabling-or-overriding-the-vault-interface-hosting
+  # TODO: enable settings web-vault content; init-container + shared storage + web-vault path?
+  web_vault_enabled: true
+
+  # # Logging to a specific file
+  # # See: https://github.com/dani-garcia/bitwarden_rs#logging
+  # log_file=/data/bitwarden.log
+
+  # Port to serve http requests on
+  # TODO: Cannot be changed currently
+  rocket_port: 80
+
+  # NOTE: HTTPS cannot be set here, as it is derived from the ingress configuration below.
+  # NOTE: DATA_FOLDER cannot be set here, as it is derived from the storage.path below.
+  # TODO: Support DATABASE_URL, ATTACHMENTS_FOLDER, ICON_CACHE_FOLDER
+  # TODO: Support fail2ban?
+
+
+deployment:
+  # Image used for the deployment
+  # See: https://github.com/mprasil/bitwarden_rs
+  image:
+    repository: mprasil/bitwarden
+    tag: 1.5.0
+    pullPolicy: IfNotPresent
+  # Resources, etc, for the deployment pod
+  resources: {}
+  nodeSelector: {}
+  tolerations: []
+  affinity: {}
+
+
+# Should not be changed
+service:
+  type: ClusterIP
+  port: 80
+
+
+# Settings regarding persistent storage
+# TODO: Support DATABASE_URL + ATTACHMENTS_FOLDER + ICON_CACHE_FOLDER
+# See: https://github.com/dani-garcia/bitwarden_rs#changing-persistent-data-location
+storage:
+  # Whether storing persistent data is enabled or not
+  enabled: true
+  # Where to store persistent data
+  path: "/bw-data"
+  # The maximum size of the persisted data
+  size: 100Mi
+
+
+# Settings regarding persistent backup storage
+backup:
+  # Whether backup is enabled or not
+  enabled: true
+  # Where to store the backup data
+  path: "/bw-backup"
+  # The maximum size of the persisted backup data
+  size: 100Mi
+
+  # Cron schedule for the backup job (currently at 3:00 every night)
+  schedule: "* 3 * * *"
+
+  # Name the backup backup.sqlite3[TIMESTAMP] instead of backup.sqlite3
+  timestamp: false
+  # Create a file containing the timestamp of the backup
+  timestamp_file: "/bw-backup/timestamp"
+
+  # Image used for backup run
+  # See: https://github.com/Skeen/bitwarden_rs_backup
+  image:
+    repository: skeen/bitwarden_rs_backup
+    tag: latest
+    pullPolicy: Always
+
+  # Resources, etc, for the backup pod(s)
+  resources: {}
+  nodeSelector: {}
+  tolerations: []
+  affinity: {}
+
+
+# Ingress configuration
+ingress:
+  enabled: true
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    kubernetes.io/tls-acme: "true"
+    kubernetes.io/ssl-redirect: "true"
+  paths:
+    - '/'
+  hosts:
+    - bitwarden.domain.tld  # host
+  tls:
+    - secretName: bitwarden-tls-secret
+      hosts:
+        - bitwarden.domain.tld  # host

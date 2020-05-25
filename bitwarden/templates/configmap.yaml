@@ -1,0 +1,17 @@
+{{- $fullName := include "bitwarden.fullname" . -}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ $fullName }}-conf
+  labels:
+    app.kubernetes.io/name: {{ include "bitwarden.name" . }}
+    helm.sh/chart: {{ include "bitwarden.chart" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+data: 
+  {{- range $key, $val := .Values.bitwarden }}
+  {{ $key | upper }}: {{ $val | quote }}
+  {{- end}}
+  {{ if .Values.storage.enabled -}}
+  DATA_FOLDER: {{ .Values.storage.path }}
+  {{ end }}

@@ -1,0 +1,13 @@
+{{- $fullName := include "bitwarden.fullname" . -}}
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ .Release.Name }}-http-test"
+  annotations:
+    "helm.sh/hook": test-success
+spec:
+  containers:
+  - name: curl
+    image: curlimages/curl
+    command: ["sh", "-c", "set -o pipefail && curl -s {{ $fullName }}:{{ .Values.service.port }} | grep 'Bitwarden Web Vault'"]
+  restartPolicy: Never
