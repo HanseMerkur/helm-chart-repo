@@ -3,7 +3,7 @@ entries:
   aws-ebs-csi-driver:
   - apiVersion: v1
     appVersion: 0.5.0
-    created: "2020-07-03T16:39:36.305431543+02:00"
+    created: "2020-07-03T16:47:40.206671627+02:00"
     description: A Helm chart for AWS EBS CSI Driver
     digest: edbf2e0c525ac303221dc7c37a1ec653eeee4355cb51036161ef8113ffc7e3a4
     home: https://github.com/kubernetes-sigs/aws-ebs-csi-driver
@@ -23,7 +23,7 @@ entries:
     version: 0.3.0
   - apiVersion: v1
     appVersion: 0.4.0
-    created: "2020-07-03T16:39:36.302711032+02:00"
+    created: "2020-07-03T16:47:40.205869101+02:00"
     description: A Helm chart for AWS EBS CSI Driver
     digest: bed015b46854c0fcfb7af2d73c8b89442401c17d6ab1a2ce7995ddff46779b8f
     home: https://github.com/kubernetes-sigs/aws-ebs-csi-driver
@@ -44,7 +44,7 @@ entries:
   bitwarden:
   - apiVersion: v1
     appVersion: 1.5.0
-    created: "2020-07-03T16:39:36.307891999+02:00"
+    created: "2020-07-03T16:47:40.207556356+02:00"
     description: A Helm chart to install bitwarden_rs
     digest: a67de39113057d205011cfec5fa16073f79765619cea1dc9e811aedb954cc753
     home: https://github.com/Skeen/helm-bitwarden_rs
@@ -58,7 +58,7 @@ entries:
   ceph-csi-rbd:
   - apiVersion: v1
     appVersion: v2.0.1
-    created: "2020-07-03T16:39:36.315140473+02:00"
+    created: "2020-07-03T16:47:40.208471273+02:00"
     description: Container Storage Interface (CSI) driver, provisioner, snapshotter,
       and attacher for Ceph RBD
     digest: 94c898e9d8c531deb2ded427c230a7e7d14a39fd85e853ffb161f46e9a155574
@@ -77,7 +77,7 @@ entries:
   citrix-k8s-ingress-controller:
   - apiVersion: v1
     appVersion: 1.8.19
-    created: "2020-07-03T16:39:36.336261936+02:00"
+    created: "2020-07-03T16:47:40.213281726+02:00"
     description: A Helm chart for Citrix Ingress Controller configuring MPX/VPX.
     digest: 8b6e6a424f779adfe4cab1b20c029cc7ff5f1b68fe594aecba70ce9c0ab4f0c8
     home: https://www.citrix.com
@@ -95,7 +95,7 @@ entries:
     version: 1.8.19-hm
   - apiVersion: v1
     appVersion: 1.7.46
-    created: "2020-07-03T16:39:36.325110103+02:00"
+    created: "2020-07-03T16:47:40.21074851+02:00"
     description: A Helm chart for Citrix Ingress Controller configuring MPX/VPX.
     digest: fedf0aee5d3e0a6facea551dc547b9627dbfee8e4a7bcfdf91127f2e22fa270f
     home: https://www.citrix.com
@@ -113,7 +113,7 @@ entries:
     version: 1.7.46-hm
   - apiVersion: v1
     appVersion: 1.7.6
-    created: "2020-07-03T16:39:36.332737856+02:00"
+    created: "2020-07-03T16:47:40.212446619+02:00"
     description: A Helm chart for Citrix Ingress Controller configuring MPX/VPX
     digest: b9fa7261139f119c7a16f67546bbac5482cd4c289698a9f073ba28d3152d5d0d
     home: https://www.citrix.com
@@ -131,7 +131,7 @@ entries:
     version: 1.7.6
   - apiVersion: v1
     appVersion: 1.7.6
-    created: "2020-07-03T16:39:36.329131041+02:00"
+    created: "2020-07-03T16:47:40.211590746+02:00"
     description: A Helm chart for Citrix Ingress Controller configuring MPX/VPX
     digest: bf6f90cdf77744a6eef57092e397beb54f751e6e76a88ef6f8da3d18e47db971
     home: https://www.citrix.com
@@ -149,7 +149,7 @@ entries:
     version: 1.7.6-hm
   - apiVersion: v1
     appVersion: 1.6.1
-    created: "2020-07-03T16:39:36.32147781+02:00"
+    created: "2020-07-03T16:47:40.209903451+02:00"
     description: A Helm chart for Citrix Ingress Controller configuring MPX/VPX
     digest: c9317a24bdd66c22da75f837a1d1811e2ef294f5633cdffd039da778889ee278
     home: https://www.citrix.com
@@ -167,7 +167,7 @@ entries:
     version: 1.6.1
   - apiVersion: v1
     appVersion: 1.5.25
-    created: "2020-07-03T16:39:36.318267021+02:00"
+    created: "2020-07-03T16:47:40.20919133+02:00"
     description: A Helm chart for Citrix Ingress Controller configuring MPX/VPX
     digest: 34c463ecfc228261af5ff0bc00f5ec55cf4bf8946ad68bdae699c84c4d8a53ff
     home: https://www.citrix.com
@@ -186,7 +186,7 @@ entries:
   codimd:
   - apiVersion: v1
     appVersion: 1.6.0
-    created: "2020-07-03T16:39:36.360323218+02:00"
+    created: "2020-07-03T16:47:40.221980004+02:00"
     dependencies:
     - condition: postgresql.install
       name: postgresql
@@ -214,7 +214,7 @@ entries:
     version: 1.5.6
   - apiVersion: v1
     appVersion: 1.6.0
-    created: "2020-07-03T16:39:36.353230669+02:00"
+    created: "2020-07-03T16:47:40.219370417+02:00"
     dependencies:
     - condition: postgresql.install
       name: postgresql
@@ -242,7 +242,7 @@ entries:
     version: 1.5.5
   - apiVersion: v1
     appVersion: 1.5.0
-    created: "2020-07-03T16:39:36.346219564+02:00"
+    created: "2020-07-03T16:47:40.216681011+02:00"
     dependencies:
     - condition: postgresql.install
       name: postgresql
@@ -272,7 +272,7 @@ entries:
   gitlab:
   - apiVersion: v1
     appVersion: 12.7.5
-    created: "2020-07-03T16:39:36.420529407+02:00"
+    created: "2020-07-03T16:47:40.251531067+02:00"
     dependencies:
     - alias: certmanager
       condition: certmanager.install
@@ -317,7 +317,7 @@ entries:
   kube-oidc-proxy:
   - apiVersion: v1
     appVersion: v0.3.0
-    created: "2020-07-03T16:39:36.421526326+02:00"
+    created: "2020-07-03T16:47:40.252057497+02:00"
     description: A Helm chart for kube-oidc-proxy
     digest: 70e01ed0cd53d50af8af1f7f61e614b020e701ae2c2c618f8594bce22d8c0fbd
     home: https://github.com/jetstack/kube-oidc-proxy
@@ -328,10 +328,31 @@ entries:
     urls:
     - kube-oidc-proxy-0.3.0.tgz
     version: 0.3.0
+  netbox:
+  - apiVersion: v1
+    appVersion: 2.8.3
+    created: "2020-07-03T16:47:40.257552074+02:00"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 8.x.x
+    - condition: redis.enabled
+      name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: 10.x.x
+    description: IP address management (IPAM) and data center infrastructure management
+      (DCIM) tool
+    digest: 38670d812f5a16fd001cf47a5ae13b44091a5d7bf95d64d347d948d5d2919e34
+    icon: https://raw.githubusercontent.com/netbox-community/netbox/develop/docs/netbox_logo.png
+    name: netbox
+    urls:
+    - netbox-2.2.0.tgz
+    version: 2.2.0
   nipio:
   - apiVersion: v2
     appVersion: 0.1.0
-    created: "2020-07-03T16:39:36.422153366+02:00"
+    created: "2020-07-03T16:47:40.257893982+02:00"
     description: Dead simple wildcard DNS for any IP Address
     digest: eb5fc8661611df873a4be970113d7404d6cc0417ec017b811e2a1b638490a08a
     name: nipio
@@ -339,4 +360,4 @@ entries:
     urls:
     - nipio-0.1.0.tgz
     version: 0.1.0
-generated: "2020-07-03T16:39:36.297159303+02:00"
+generated: "2020-07-03T16:47:40.205323092+02:00"
