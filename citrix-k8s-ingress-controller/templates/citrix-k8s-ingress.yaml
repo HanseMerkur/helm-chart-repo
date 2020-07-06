@@ -43,6 +43,7 @@ spec:
         image: "{{ .Values.image }}"
         imagePullPolicy: {{ .Values.pullPolicy }}
         args:
+          - --update-ingress-status yes
           - --configmap
             {{ .Release.Namespace }}/cic-configmap
 {{- if .Values.defaultSSLCert }}
