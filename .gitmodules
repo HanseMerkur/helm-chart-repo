@@ -1,6 +1,0 @@
-[submodule "codimd-chart"]
-	path = codimd-chart
-	url = https://github.com/HanseMerkur/codimd-chart
-[submodule "nipio-chart"]
-	path = nipio-chart
-	url = https://github.com/HanseMerkur/nipio-chart
